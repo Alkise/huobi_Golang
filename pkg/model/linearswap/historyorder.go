@@ -39,6 +39,7 @@ type HistoryOrderV3 struct {
 	QueryId         int64   `json:"query_id"`
 	OrderId         int64   `json:"order_id"`
 	OrderIdStr      string  `json:"order_id_str"`
+	ClientOrderId   *string `json:"client_order_id,omitempty"`
 	Symbol          string  `json:"symbol"`
 	ContractCode    string  `json:"contract_code"`
 	MarginMode      string  `json:"margin_mode"`

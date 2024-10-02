@@ -263,12 +263,12 @@ func (p *LinearSwapClient) GetOpenOrders(
 	if body, err = internal.HttpPost(url, body); err != nil {
 		return
 	}
-	result := new(linearswap.GetInformationOfOrderResponse)
+	result := new(linearswap.CrossLinearOpenOrdersResponse)
 	if err = json.Unmarshal([]byte(body), result); err != nil {
 		return
 	}
 	if result.Status == "ok" && result.Data != nil {
-		return result.Data, nil
+		return result.Data.Orders, nil
 	}
 	return nil, errors.New(body)
 }
